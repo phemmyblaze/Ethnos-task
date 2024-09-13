@@ -4,7 +4,7 @@ import { IoMdNotifications } from "react-icons/io";
 const Header = () => {
   return (
     <div className='flex justify-between items-center px-5 py-2'>
-       <div className=" hidden md:block  py-2 px-4 rounded-[4px]">
+       <div className=" hidden md:block rounded-[4px]">
           <h1 className='font-bold text-2xl text-gray-600'>Welcome back,</h1>
           <p className='text-indigo-600 font-bold'>Mary Jane</p>
         </div>

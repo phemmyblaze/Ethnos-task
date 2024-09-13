@@ -63,7 +63,7 @@ const User = () => {
 
   return (
     <div className='px-5 py-2'>
-      <div className="relative hidden md:flex items-center w-[400px] h-[40px] py-2 px-4 rounded-[4px]">
+      <div className="relative hidden md:flex items-center w-[400px] h-[40px] rounded-[4px]">
         <CiSearch size={20} className="absolute left-5 text-indigo-500" />
         <input
           type="text"
