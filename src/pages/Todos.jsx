@@ -57,7 +57,7 @@ const Todos = () => {
       </div>
       {loading ? (
         <div className="flex justify-center items-center h-screen">
-          <Circles height="200" width="100" color="#4B0082" ariaLabel="line-wave" wrapperStyle={{}} wrapperClass="" visible={true} firstLineColor="" middleLineColor="" lastLineColor="" />
+          <Circles height="200" width="100" color="#4f46e5" ariaLabel="line-wave" wrapperStyle={{}} wrapperClass="" visible={true} firstLineColor="" middleLineColor="" lastLineColor="" />
         </div>
       ) : (
         <>
