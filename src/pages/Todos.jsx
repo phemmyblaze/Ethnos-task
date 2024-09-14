@@ -50,7 +50,7 @@ const Todos = () => {
 
   return (
     <div className='px-5 py-2'>
-      <div className="flex justify-end mb-4">
+      <div className="flex justify-center mb-4">
         <button className={`mr-2 font-medium text-lg ${filterStatus === 'all' ? 'text-indigo-600' : 'text-gray-600'}`} onClick={() => handleFilterChange('all')}>All</button>
         <button className={`mr-2 font-medium text-lg ${filterStatus === 'completed' ? 'text-indigo-600' : 'text-gray-600'}`} onClick={() => handleFilterChange('completed')}>Completed</button>
         <button className={` font-medium text-lg ${filterStatus === 'not-completed' ? 'text-indigo-600' : 'text-gray-600'}`} onClick={() => handleFilterChange('not-completed')}>Not Completed</button>
@@ -63,8 +63,8 @@ const Todos = () => {
         <>
           <div className='grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
             {currentTodos.map(todo => (
-              <div key={todo.id} className='border-2 border-gray-200 p-4 rounded-md'>
-                <div className='flex justify-end'>Status: {todo.completed ? 'Completed' : 'Not Completed'}</div>
+              <div key={todo.id} className='border-2 border-gray-200 p-4 rounded-md '>
+                <div className=''>Status: {todo.completed ? 'Completed' : 'Not Completed'}</div>
                 <h2 className='text-[14px] text-gray-800'>{todo.title}</h2>
               </div>
             ))}
