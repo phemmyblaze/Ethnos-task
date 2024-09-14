@@ -6,8 +6,6 @@ import { BsFileEarmarkPost } from "react-icons/bs";
 
 
 const PostModal = ({setIsOpen, selectedPost}) => {
-
-    console.log(selectedPost)
    
     
   

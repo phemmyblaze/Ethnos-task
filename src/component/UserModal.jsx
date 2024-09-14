@@ -5,8 +5,6 @@ import { FaUser } from "react-icons/fa";
 
 
 const UserModal = ({setIsOpen, selectedUser}) => {
-
-    console.log(selectedUser)
     
   
 
