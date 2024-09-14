@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Circles } from "react-loader-spinner";
 
 const Albums = () => {
   const [album, setAlbum] = useState([])
@@ -8,6 +9,7 @@ const Albums = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalAlbum, setTotalAlbum] = useState(0);
   const albumPerPage = 12;
+  const [loading, setLoading] = useState(true);
   
 
   const ablumApiUrl = "https://jsonplaceholder.typicode.com/albums";
@@ -15,6 +17,7 @@ const Albums = () => {
 
  useEffect(() => {
   const fetchData =  async () => {
+    setLoading(true);
     try {
       const [ablumResponse, usersResponse] = await Promise.all([
         axios.get(ablumApiUrl),
@@ -42,7 +45,10 @@ const Albums = () => {
       setCombinedData(dataWithUserInfo)
     } catch (err) {
       console.log(err)
+    } finally {
+      setLoading(false); 
     }
+
   }
 
   fetchData();
@@ -57,8 +63,13 @@ const Albums = () => {
 
   return (
     <div className='px-5 py-2'>
-
-      <div className='grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
+      {loading ? (
+        <div className="flex justify-center items-center h-screen">
+          <Circles height="200" width="100" color="#4B0082" ariaLabel="line-wave" wrapperStyle={{}} wrapperClass="" visible={true} firstLineColor="" middleLineColor="" lastLineColor="" />
+        </div>
+      ) : (
+        <>
+        <div className='grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
         {combinedData.map((album) => (
           <div key={album.id} className='flex flex-col border-2 px-3 py-5 text-justify h-full'>
             <div className='flex flex-col flex-grow'>
@@ -102,6 +113,10 @@ const Albums = () => {
           Next
         </button>
       </div>
+        </>
+      )}
+
+      
     </div>
   )
 }

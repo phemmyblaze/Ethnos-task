@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { CiSearch } from "react-icons/ci";
 import UserModal from '../component/UserModal';
-
+import { Circles } from "react-loader-spinner";
 const User = () => {
   const [users, setUsers] = useState([]);
   const [search, setSearch] = useState('');
@@ -12,13 +12,17 @@ const User = () => {
   const [usersPerPage] = useState(10);
   const [isOpen, setIsOpen] = useState(false)
   const [selectedUser, setSelectedUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
 
   const apiUrl = "https://jsonplaceholder.typicode.com/users";
 
   useEffect(() => {
+    setLoading(true);
     axios.get(apiUrl)
       .then(response => {
         setUsers(response.data);
+        setLoading(false);
       })
       .catch(err => {
         console.log(err);
@@ -63,7 +67,14 @@ const User = () => {
 
   return (
     <div className='px-5 py-2'>
-      <div className="relative hidden md:flex items-center w-[400px] h-[40px] rounded-[4px]">
+      {loading ? (
+        <div className="flex justify-center items-center h-screen">
+          <Circles height="200" width="100" color="#4B0082" ariaLabel="line-wave" wrapperStyle={{}} wrapperClass="" visible={true} firstLineColor="" middleLineColor="" lastLineColor="" />
+        </div>
+
+      ) : (
+        <>
+        <div className="relative hidden md:flex items-center w-[400px] h-[40px] rounded-[4px]">
         <CiSearch size={20} className="absolute left-5 text-indigo-500" />
         <input
           type="text"
@@ -138,6 +149,9 @@ const User = () => {
           Next
         </button>
       </div>
+        </>
+      )}
+      
       {isOpen && <UserModal setIsOpen={setIsOpen} selectedUser={selectedUser}/>}
     </div>
   );
