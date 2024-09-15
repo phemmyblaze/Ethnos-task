@@ -8,7 +8,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { BiCollapse } from "react-icons/bi";
 
 const Links = [
-  { id: 1, path: "/", name: "User", icon: FaUsers },
+  { id: 1, path: "/", name: "Users", icon: FaUsers },
   { id: 2, path: "/posts", name: "Posts", icon: MdOutlinePostAdd },
   { id: 3, path: "/todos", name: "Todos", icon: RiTodoLine },
   { id: 4, path: "/albums", name: "Albums", icon: IoAlbums },

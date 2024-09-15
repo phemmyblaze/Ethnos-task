@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 import Navbar from './Navbar';
 
 const Layout = ({ darkMode, toggleDarkMode, setDarkMode }) => {
-  const [isExpanded, setIsExpanded] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleSidebar = () => {
     setIsExpanded(!isExpanded);

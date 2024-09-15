@@ -88,7 +88,7 @@ const Albums = () => {
 
 
 
-      <div className='mt-5 sm:hidden md:flex md:justify-center'>
+      <div className='mt-5 sm:hidden md:flex md:justify-end'>
         <button 
           onClick={() => handlePageChange(currentPage - 1)} 
           disabled={currentPage === 1}

@@ -53,11 +53,11 @@ const Todos = () => {
         <select 
           value={filterStatus} 
           onChange={handleFilterChange} 
-          className='font-medium text-lg border-2 py-2 px-5 border-indigo-300 rounded-md focus:border-indigo-300 outline-none'
+          className='font-medium text-lg border-2 py-2 px-5 border-indigo-300 rounded-md focus:border-indigo-300 outline-none text-indigo-600'
         >
-          <option value="all" className='text-gray-600'>All</option>
-          <option value="completed" className='text-gray-600'>Completed</option>
-          <option value="not-completed" className='text-gray-600'>Not Completed</option>
+          <option value="all" className='text-indigo-600'>All</option>
+          <option value="completed" className='text-indigo-600'>Completed</option>
+          <option value="not-completed" className='text-indigo-600'>Not Completed</option>
         </select>
       </div>
       {loading ? (
@@ -75,11 +75,11 @@ const Todos = () => {
                 <div className={`font-medium ${todo.completed ? 'text-green-600' : 'text-red-600'}`}>
                   Status: {todo.completed ? 'Completed' : 'Not Completed'}
                 </div>
-                <h2 className='text-[14px] text-gray-800'>{todo.title}</h2>
+                <h2 className='text-[14px]'>{todo.title}</h2>
               </div>
             ))}
           </div>
-          <div className="mt-5 sm:hidden md:flex md:justify-center md:gap-3">
+          <div className="mt-5 sm:hidden md:flex md:justify-end md:gap-3">
             <button 
               onClick={() => handlePageChange(currentPage - 1)} 
               disabled={currentPage === 1}
@@ -90,7 +90,7 @@ const Todos = () => {
             {Array.from({ length: totalPages }, (_, index) => (
               <button
                 key={index}
-                className={`px-3 py-1 mx-1 ${currentPage === index + 1 ? 'bg-indigo-600 text-white' : 'bg-gray-200'}`}
+                className={`px-3 py-1 mx-1 ${currentPage === index + 1 ? 'bg-indigo-600 text-white' : ''}`}
                 onClick={() => handlePageChange(index + 1)}
               >
                 {index + 1}

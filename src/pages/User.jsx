@@ -75,14 +75,14 @@ const User = () => {
       ) : (
         <>
         <div className='flex justify-end'>
-        <div className="relative hidden md:flex md:justify-end items-center w-[400px] h-[40px] rounded-[4px]">
-          <CiSearch size={20} className="absolute left-5 text-indigo-500" />
+        <div className="relative md:flex md:justify-end items-center w-[400px] h-[40px] rounded-[4px] sm:block sm:justify-center">
+          {/* <CiSearch size={20} className="absolute left-5 text-indigo-500 sm:hidden lg:block" /> */}
           <input
             type="text"
-            placeholder="Search"
+            placeholder="Search by name, email"
             value={search}
             onChange={handleSearch}
-            className="pl-8 w-full h-full border-2 outline-none py-5 text-[14px] rounded-lg bg-indigo-100/30 text-indigo-500 focus:outline-0 focus:ring-2 focus:ring-indigo-600"
+            className="pl-3 w-full h-full border-2 outline-none py-5 text-[14px] rounded-lg bg-indigo-100/30 text-indigo-500 focus:outline-0 focus:ring-2 focus:ring-indigo-600"
           />
         </div>
         </div>
@@ -126,11 +126,11 @@ const User = () => {
           </tbody>
         </table>
       </div>
-      <div className="flex justify-center mt-4">
+      <div className="flex sm:hidden md:flex md:justify-end mt-4">
         <button
           onClick={() => paginate(currentPage - 1)}
           disabled={currentPage === 1}
-          className="mx-1 px-3 py-1 bg-indigo-600 text-white rounded disabled:opacity-50"
+          className="mx-1 px-3 py-1 border rounded disabled:opacity-50"
         >
           Previous
         </button>
@@ -138,7 +138,7 @@ const User = () => {
           <button
             key={index + 1}
             onClick={() => paginate(index + 1)}
-            className={`mx-1 px-3 py-1 rounded ${currentPage === index + 1 ? 'bg-indigo-600 text-white' : 'bg-gray-200'}`}
+            className={`mx-1 px-3 py-1 border rounded ${currentPage === index + 1 ? 'bg-indigo-500 text-white' : ''}`}
           >
             {index + 1}
           </button>
