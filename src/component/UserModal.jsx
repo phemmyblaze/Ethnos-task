@@ -59,7 +59,7 @@ const UserModal = ({setIsOpen, selectedUser}) => {
 
               
 
-            <div onClick={() => setIsOpen(false)} className="absolute top-4 right-4 text-primary hide-scrollbar flex justify-end cursor-pointer">
+            <div onClick={() => setIsOpen(false)} className="absolute top-4 right-4 text-indigo-600 hide-scrollbar flex justify-end cursor-pointer">
                 <FaTimes size={24} />
             </div>
 

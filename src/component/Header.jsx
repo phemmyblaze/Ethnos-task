@@ -15,7 +15,7 @@ const Header = ({ toggleSidebar, toggleDarkMode }) => {
           <GiHamburgerMenu size={32} color='#4f46e5' />
         </button>
         <div className="hidden md:block rounded-[4px]">
-          <h1 className='font-bold text-2xl text-gray-600'>Welcome back,</h1>
+          <h1 className='font-bold text-2xl'>Welcome back,</h1>
           <p className='text-indigo-600 font-bold'>Mary Jane</p>
         </div>
       </div>
