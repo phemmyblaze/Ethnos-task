@@ -3,7 +3,7 @@ import Header from "./Header";
 import { Outlet } from 'react-router-dom';
 import Navbar from './Navbar';
 
-const Layout = () => {
+const Layout = ({ darkMode, toggleDarkMode, setDarkMode }) => {
   const [isExpanded, setIsExpanded] = useState(true);
 
   const toggleSidebar = () => {
@@ -11,15 +11,17 @@ const Layout = () => {
   };
 
   return (
-    <div className="flex">
-      <div className={`fixed z-30 ${isExpanded ? 'block' : 'hidden'} md:block`}>
-        <Navbar isExpanded={isExpanded} toggleSidebar={toggleSidebar} />
+    <div className={`flex ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'}`}>
+      <div className={`fixed z-30 transition-all duration-300 ${isExpanded ? 'block' : 'hidden'} md:block`}>
+        <Navbar isExpanded={isExpanded} toggleSidebar={toggleSidebar} toggleDarkMode={toggleDarkMode} darkMode={darkMode}/>
       </div>
       <div
-        className={`w-full transition-all duration-300 ${isExpanded ? '' : 'md:ml-3'} ${isExpanded ? 'md:pl-56' : 'md:pl-16'}`}
+        className={`w-full transition-all duration-300 ${isExpanded ? 'md:pl-56' : 'md:pl-16'}`}
       >
-        <Header toggleSidebar={toggleSidebar} />
-        <Outlet />
+        <Header toggleSidebar={toggleSidebar} toggleDarkMode={toggleDarkMode}/>
+        <div className="p-4">
+          <Outlet />
+        </div>
       </div>
     </div>
   );

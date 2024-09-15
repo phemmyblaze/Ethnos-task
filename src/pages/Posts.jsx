@@ -82,11 +82,11 @@ const Posts = () => {
               <div key={post.id} className='flex flex-col border-2 px-3 py-5 text-justify h-full'>
                 <div className='flex flex-col flex-grow'>
                   <div className='mb-5'>
-                    <p className='text-indigo-500'>Title</p>
-                    <h1 className='text-lg font-medium text-gray-600'>{post.title}</h1>
+                    {/* <p className='text-indigo-500'>Title</p> */}
+                    <h1 className='text-lg font-medium text-indigo-600'>{post.title}</h1>
                   </div>
                   <p>{post.body}</p>
-                  <p className='text-indigo-600 text-sm mt-5'>Author: {post.userName}</p>
+                  <p className='text-indigo-600 text-sm mt-5'>User: {post.userName}</p>
                 </div>
                 <div 
                   className='text-center mt-4 bg-indigo-300 px-3 py-2 rounded-2xl cursor-pointer hover:bg-indigo-800 hover:text-white ease-in-out duration-300 hover:scale-95'

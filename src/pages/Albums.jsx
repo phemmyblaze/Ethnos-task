@@ -74,11 +74,11 @@ const Albums = () => {
           <div key={album.id} className='flex flex-col border-2 px-3 py-5 text-justify h-full'>
             <div className='flex flex-col flex-grow'>
               <div className='mb-5'>
-                <p className='text-indigo-500'>Title</p>
-                <h1 className='text-lg font-medium text-gray-600'>{album.title}</h1>
+                {/* <p className='text-indigo-500'>Title</p> */}
+                <h1 className='text-lg font-bold text-indigo-600'>{album.title}</h1>
               </div>
               
-              <p className='text-indigo-600 text-sm mt-5'>User: {album.userName}</p>
+              <p className='text-grey-600 text-sm mt-5'>User: {album.userName}</p>
             </div>
             
           </div>

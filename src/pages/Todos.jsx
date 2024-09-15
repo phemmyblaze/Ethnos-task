@@ -23,8 +23,8 @@ const Todos = () => {
       });
   }, []);
 
-  const handleFilterChange = (status) => {
-    setFilterStatus(status);
+  const handleFilterChange = (e) => {
+    setFilterStatus(e.target.value);
     setCurrentPage(1); 
   };
 
@@ -37,7 +37,6 @@ const Todos = () => {
     return true;
   });
 
-  
   const indexOfLastTodo = currentPage * itemsPerPage;
   const indexOfFirstTodo = indexOfLastTodo - itemsPerPage;
   const currentTodos = filteredTodos.slice(indexOfFirstTodo, indexOfLastTodo);
@@ -50,21 +49,32 @@ const Todos = () => {
 
   return (
     <div className='px-5 py-2'>
-      <div className="flex justify-center mb-4">
-        <button className={`mr-2 font-medium text-lg ${filterStatus === 'all' ? 'text-indigo-600' : 'text-gray-600'}`} onClick={() => handleFilterChange('all')}>All</button>
-        <button className={`mr-2 font-medium text-lg ${filterStatus === 'completed' ? 'text-indigo-600' : 'text-gray-600'}`} onClick={() => handleFilterChange('completed')}>Completed</button>
-        <button className={` font-medium text-lg ${filterStatus === 'not-completed' ? 'text-indigo-600' : 'text-gray-600'}`} onClick={() => handleFilterChange('not-completed')}>Not Completed</button>
+      <div className="flex justify-end mb-4">
+        <select 
+          value={filterStatus} 
+          onChange={handleFilterChange} 
+          className='font-medium text-lg border-2 py-2 px-5 border-indigo-300 rounded-md focus:border-indigo-300 outline-none'
+        >
+          <option value="all" className='text-gray-600'>All</option>
+          <option value="completed" className='text-gray-600'>Completed</option>
+          <option value="not-completed" className='text-gray-600'>Not Completed</option>
+        </select>
       </div>
       {loading ? (
         <div className="flex justify-center items-center h-screen">
-          <Circles height="200" width="100" color="#4f46e5" ariaLabel="line-wave" wrapperStyle={{}} wrapperClass="" visible={true} firstLineColor="" middleLineColor="" lastLineColor="" />
+          <Circles height="200" width="100" color="#4f46e5" ariaLabel="line-wave" wrapperStyle={{}} wrapperClass="" visible={true} />
         </div>
       ) : (
         <>
           <div className='grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
             {currentTodos.map(todo => (
-              <div key={todo.id} className='border-2 border-gray-200 p-4 rounded-md '>
-                <div className=''>Status: {todo.completed ? 'Completed' : 'Not Completed'}</div>
+              <div 
+                key={todo.id} 
+                className={`border-2 p-4 rounded-md`}
+              >
+                <div className={`font-medium ${todo.completed ? 'text-green-600' : 'text-red-600'}`}>
+                  Status: {todo.completed ? 'Completed' : 'Not Completed'}
+                </div>
                 <h2 className='text-[14px] text-gray-800'>{todo.title}</h2>
               </div>
             ))}
@@ -86,7 +96,6 @@ const Todos = () => {
                 {index + 1}
               </button>
             ))}
-
             <button 
               onClick={() => handlePageChange(currentPage + 1)} 
               disabled={currentPage === totalPages}

@@ -66,7 +66,7 @@ const User = () => {
   };
 
   return (
-    <div className='px-5 py-2'>
+    <div className='px-5 py-2 h-screen'>
       {loading ? (
         <div className="flex justify-center items-center h-screen">
           <Circles height="200" width="100" color="#4f46e5" ariaLabel="line-wave" wrapperStyle={{}} wrapperClass="" visible={true} firstLineColor="" middleLineColor="" lastLineColor="" />
@@ -74,16 +74,18 @@ const User = () => {
 
       ) : (
         <>
-        <div className="relative hidden md:flex items-center w-[400px] h-[40px] rounded-[4px]">
-        <CiSearch size={20} className="absolute left-5 text-indigo-500" />
-        <input
-          type="text"
-          placeholder="Search"
-          value={search}
-          onChange={handleSearch}
-          className="pl-8 w-full h-full border-2 outline-none py-5 text-[14px] rounded-lg bg-indigo-100/30 text-indigo-500 focus:outline-0 focus:ring-2 focus:ring-indigo-600"
-        />
-      </div>
+        <div className='flex justify-end'>
+        <div className="relative hidden md:flex md:justify-end items-center w-[400px] h-[40px] rounded-[4px]">
+          <CiSearch size={20} className="absolute left-5 text-indigo-500" />
+          <input
+            type="text"
+            placeholder="Search"
+            value={search}
+            onChange={handleSearch}
+            className="pl-8 w-full h-full border-2 outline-none py-5 text-[14px] rounded-lg bg-indigo-100/30 text-indigo-500 focus:outline-0 focus:ring-2 focus:ring-indigo-600"
+          />
+        </div>
+        </div>
       <div className='overflow-x-auto table-fancy-scrollbar w-full mt-6'>
         <table className='w-full relative px-5 border-2 rounded-2xl'>
           <thead className='bg-[#f5f5f5] border-b'>
@@ -113,12 +115,12 @@ const User = () => {
           </thead>
           <tbody>
             {currentUsers.map(user => (
-              <tr key={user.id} className='text-gray-600'>
+              <tr key={user.id} className='dark:text-white'>
                 <td className="px-5 py-3 font-[700] text-left text-[12px] md:text-[14px] whitespace-nowrap border-b">{user.name}</td>
                 <td className="px-5 py-3 font-[700] text-left text-[12px] md:text-[14px] whitespace-nowrap border-b">{user.email}</td>
-                <td className="px-5 py-3 font-[700] text-left text-[12px] md:text-[14px] whitespace-nowrap border-b">{user.address.city}</td>
+                <td className="px-5 py-3 font-[700] text-left text-[12px] md:text-[14px] whitespace-nowrap border-b">{`${user.address.suite}, ${user.address.street} (${user.address.city})`}</td>
                 <td className="px-5 py-3 font-[700] text-left text-[12px] md:text-[14px] whitespace-nowrap border-b">{user.company.name}</td>
-                <td className="px-5 py-3 font-[700] text-left text-[12px] md:text-[14px] whitespace-nowrap border-b cursor-pointer" onClick={() => handleView(user)}>View</td>
+                <td className="px-5 py-3 font-[700] text-left text-[12px] md:text-[14px] whitespace-nowrap border-b cursor-pointer text-green-600" onClick={() => handleView(user)}>View</td>
               </tr>
             ))}
           </tbody>
