@@ -4,8 +4,7 @@ import PostModal from '../component/PostModal';
 import { Circles } from "react-loader-spinner";
 
 const Posts = () => {
-  const [posts, setPosts] = useState([]);
-  const [users, setUsers] = useState([]);
+ 
   const [combinedData, setCombinedData] = useState([]);
   const [selectedPost, setSelectedPost] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -33,8 +32,7 @@ const Posts = () => {
           currentPage * postsPerPage
         );
 
-        setPosts(paginatedPosts);
-        setUsers(usersResponse.data);
+       
 
         const dataWithUserInfo = paginatedPosts.map(post => {
           const user = usersResponse.data.find(user => user.id === post.userId);
@@ -82,7 +80,6 @@ const Posts = () => {
               <div key={post.id} className='flex flex-col border-2 px-3 py-5 text-justify h-full'>
                 <div className='flex flex-col flex-grow'>
                   <div className='mb-5'>
-                    {/* <p className='text-indigo-500'>Title</p> */}
                     <h1 className='text-lg font-medium text-indigo-600'>{post.title}</h1>
                   </div>
                   <p>{post.body}</p>

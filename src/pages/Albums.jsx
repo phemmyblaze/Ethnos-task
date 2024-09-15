@@ -3,8 +3,6 @@ import axios from 'axios';
 import { Circles } from "react-loader-spinner";
 
 const Albums = () => {
-  const [album, setAlbum] = useState([])
-  const [users, setUsers] = useState([])
   const [combinedData, setCombinedData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalAlbum, setTotalAlbum] = useState(0);
@@ -31,8 +29,6 @@ const Albums = () => {
         currentPage * albumPerPage
       );
 
-      setAlbum(paginatedAlbums)
-      setUsers(usersResponse.data)
 
       const dataWithUserInfo =  paginatedAlbums.map((album) => {
         const user =  usersResponse.data.find(user => user.id === album.userId)

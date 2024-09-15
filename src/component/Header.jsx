@@ -1,4 +1,3 @@
-import React, {useState} from 'react';
 import { IoMdNotifications } from "react-icons/io";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { CiSearch } from "react-icons/ci";

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { CiSearch } from "react-icons/ci";
 import UserModal from '../component/UserModal';
 import { Circles } from "react-loader-spinner";
 const User = () => {
@@ -76,7 +75,6 @@ const User = () => {
         <>
         <div className='flex justify-end'>
         <div className="relative md:flex md:justify-end items-center w-[400px] h-[40px] rounded-[4px] sm:block sm:justify-center">
-          {/* <CiSearch size={20} className="absolute left-5 text-indigo-500 sm:hidden lg:block" /> */}
           <input
             type="text"
             placeholder="Search by name, email"
