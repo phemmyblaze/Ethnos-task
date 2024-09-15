@@ -62,7 +62,7 @@ const Albums = () => {
 };
 
   return (
-    <div className='px-5 py-2'>
+    <div className='px-5 py-2 h-screen'>
       {loading ? (
         <div className="flex justify-center items-center h-screen">
           <Circles height="200" width="100" color="#4f46e5" ariaLabel="line-wave" wrapperStyle={{}} wrapperClass="" visible={true} firstLineColor="" middleLineColor="" lastLineColor="" />

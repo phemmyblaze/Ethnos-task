@@ -48,7 +48,7 @@ const Todos = () => {
   };
 
   return (
-    <div className='px-5 py-2'>
+    <div className='px-5 py-2 h-screen'>
       <div className="flex justify-end mb-4">
         <select 
           value={filterStatus} 

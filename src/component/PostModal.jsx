@@ -21,7 +21,7 @@ const PostModal = ({setIsOpen, selectedPost}) => {
             </div>
             </div>
             <div className="flex flex-col gap-3">
-                <h1 className="text-xl font-bold text-center">Post Details</h1>
+                <h1 className="text-xl font-bold text-center text-indigo-600">Post Details</h1>
 
                 <div className="flex justify-between items-center gap-4">
                     <h1 className='font-bold text-xl text-gray-600'>Title:</h1>
@@ -33,7 +33,7 @@ const PostModal = ({setIsOpen, selectedPost}) => {
                     <p className='text-indigo-600'>{selectedPost.body}</p>
                 </div>
                 <div className="flex justify-between items-center gap-4">
-                    <h1 className='font-bold text-xl text-gray-600'>Author:</h1>
+                    <h1 className='font-bold text-xl text-gray-600'>User:</h1>
                     <p className='text-indigo-600 capitalize'>{selectedPost.userName}</p>
                 </div>
 
